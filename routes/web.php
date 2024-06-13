@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use zhangv\unionpay\UnionPay;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,20 @@ Route::get('auth/facebook/callback', [App\Http\Controllers\SocialController::cla
 use App\Http\Controllers\WhatappController;
 
 Route::get('/send-whatsapp', [WhatappController::class, 'sendWhatsAppMessage']);
+
+// Route::get('/unionpay', function () {
+//     list($mode, $config) = include '../config/config.php';
+//     $unionPay = UnionPay::B2C($config, $mode);
+
+//     $payOrderNo = date('YmdHis');
+//     $amt = 1;
+//     // dd($unionPay);
+
+//     $html = $unionPay->pay(12, 200, [], false);
+//     dd($html);
+//     echo $html;
+// });
+
+// Route::get('response', function () {
+//     return 'success';
+// });
