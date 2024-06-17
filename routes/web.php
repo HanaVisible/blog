@@ -59,3 +59,9 @@ Route::get('/send-whatsapp', [WhatappController::class, 'sendWhatsAppMessage']);
 // Route::get('response', function () {
 //     return 'success';
 // });
+
+Route::post('test', function ($request) {
+    dd($request->all());
+    // Storage::disk('s3')->put('')
+    // return Storage::disk('s3')->files();
+})->name('test');

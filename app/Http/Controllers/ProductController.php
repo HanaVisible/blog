@@ -30,7 +30,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        Product::create($request->all());
+        dd($request->all());
+        $input = $request->all();
+
+        $path = \Storage::disk('s3')->put('files', $request->file('image'));
+        $input['image'] = $path;
+        Product::create($input);
 
         return redirect()->route('product.index');
     }
@@ -40,6 +45,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        $image = \Storage::disk('s3')->get($product->image);
+
+        return view('welcome', compact('product'));
     }
 
     /**

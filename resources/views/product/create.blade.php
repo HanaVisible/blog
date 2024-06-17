@@ -11,7 +11,7 @@
     </div>
 
     <div class="card-body">
-        <form action="{{ route('product.store')}}" method="post">
+        <form action="{{ route('product.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
               <label for="exampleFormControlInput1">Name</label>
@@ -20,6 +20,10 @@
             <div class="form-group">
                 <label for="exampleFormControlInput1">Price</label>
                 <input type="number" name="price" class="form-control" id="exampleFormControlInput1" >
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Image</label>
+                <input type="file" name="image" class="form-control" >
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Description</label>
